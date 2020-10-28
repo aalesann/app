@@ -38,15 +38,15 @@ let formulario = document.getElementById('formulario')
 formulario.addEventListener('submit', async function(e){
     console.log("click!")
     e.preventDefault()///comentar esto para verificar   
-let username = '';
-let password = ''; 
-let url = `` 
+let username = 'u';
+let password = 'p'; 
+let url = `api/-default-/public/alfresco/versions/1/nodes/7445ea46-42ff-49b8-9989-205870978022`
 let authString = `${username}:${password}`
 let headers = new Headers();
 headers.set('Authorization', 'Basic ' + btoa(authString))
 await fetch(url,{method: 'GET', headers: headers})
     .then(function (response) {
-        let data = response.body;
+        let data = response;
         console.log(data)
         console.warn(typeof(data))
         //return response
